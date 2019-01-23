@@ -1,23 +1,33 @@
 <template>
   <div>
-    <div className="row">
+    <div class="row">
       <router-link to="/"> <button>Home</button> </router-link>
-      <button className="button-primary">Save</button>
+      <button class="button-primary" v-on:click="saveOrder();">Save</button>
     </div>
 
     <form>
-      <div className="row u-full-width">
-        <div className="columns six">
+      <div class="row">
+        <div class="columns six">
           <label htmlFor="title">Title</label>
-          <input className="u-full-width" id="title" type="text" required />
+          <input
+            class="u-full-width"
+            id="title"
+            type="text"
+            required
+            v-model="title"
+          />
         </div>
 
-        <div className="columns six">
+        <div class="columns six">
           <label htmlFor="status">Status</label>
-          <select className="u-full-width" id="status" required>
-            <option v-bind:key="status" v-for="status in allStatuses">{{
-              status
-            }}</option>
+          <select class="u-full-width" id="status" required v-model="status">
+            <option
+              v-bind:key="status"
+              v-for="status in allStatuses"
+              v-bind:value="status"
+            >
+              {{ status }}</option
+            >
           </select>
         </div>
       </div>
@@ -33,8 +43,17 @@ export default {
   components: {},
   data: () => {
     return {
+      title: "",
+      status: Orders.Status.PROCESSING,
       allStatuses: Object.keys(Orders.Status)
     };
+  },
+  methods: {
+    saveOrder: function() {
+      //TODO: implement
+      console.log("Saving");
+      console.log(this.title, this.status);
+    }
   },
   props: []
 };

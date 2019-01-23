@@ -8,7 +8,7 @@
         <button v-on:click="onRefresh">Refresh</button>
       </div>
     </div>
-    <div className="row" >
+    <div className="row">
       <div className="columns twelve">
         <table class="u-full-width" v-if="loaded">
           <thead>
@@ -36,8 +36,13 @@
 import { OrderDaos } from "../../dao";
 import OrderRow from "./OrderRow";
 import Loader from "../Loader";
+import axios from "axios";
 
-const orderDao = new OrderDaos.OrderDao();
+const axiosInstance = axios.create({
+  baseURL: "https://c098da06.ngrok.io",
+  timeout: 1000
+});
+const orderDao = new OrderDaos.OrderDao(axiosInstance);
 
 export default {
   name: "OrderList",
@@ -69,8 +74,7 @@ export default {
         this.orders = orders;
       });
     }
-  },
-
+  }
 };
 </script>
 
