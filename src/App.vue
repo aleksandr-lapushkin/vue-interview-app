@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div className="container u-full-width">
-      <div className="row">
-        <div className="columns twelve"><h1>Orders</h1></div>
+    <div class="container u-full-width">
+      <div class="row">
+        <div class="columns twelve"><h1>Orders</h1></div>
       </div>
       <router-view/>
     </div>
@@ -14,8 +14,6 @@ import { OrderDaos } from "./dao";
 import OrderList from "./components/orders/OrderList";
 import Loader from "./components/Loader";
 import "./assets/skeleton.css";
-
-const orderDao = new OrderDaos.OrderDao();
 
 export default {
   name: "App",

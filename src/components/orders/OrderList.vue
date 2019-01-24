@@ -57,7 +57,6 @@ export default {
     };
   },
   created: function() {
-    console.dir(this);
     this.fetchOrders().then(orders => {
       this.loaded = true;
       this.orders = orders;

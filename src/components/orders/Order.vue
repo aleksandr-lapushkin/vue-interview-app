@@ -14,13 +14,12 @@
             id="title"
             type="text"
             required
-            v-model="title"
           />
         </div>
 
         <div class="columns six">
           <label htmlFor="status">Status</label>
-          <select class="u-full-width" id="status" required v-model="status">
+          <select class="u-full-width" id="status" required>
             <option
               v-bind:key="status"
               v-for="status in allStatuses"
@@ -43,8 +42,6 @@ export default {
   components: {},
   data: () => {
     return {
-      title: "",
-      status: Orders.Status.PROCESSING,
       allStatuses: Object.keys(Orders.Status)
     };
   },
@@ -52,7 +49,6 @@ export default {
     saveOrder: function() {
       //TODO: implement
       console.log("Saving");
-      console.log(this.title, this.status);
     }
   },
   props: []

@@ -8,17 +8,14 @@ import App from "./App";
 
 Vue.config.productionTip = false;
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
-
-const router = new VueRouter(
-  {
-    routes: [
-      {path: "/", component: OrderList},
-      {path: "/new", component: Order}
-    ]
-  }
-);
+const router = new VueRouter({
+  routes: [
+    { path: "/", component: OrderList },
+    { path: "/new", component: Order }
+  ]
+});
 
 /* eslint-disable no-new */
 new Vue({
