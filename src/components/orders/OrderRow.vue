@@ -1,8 +1,8 @@
 <template>
   <tr>
-    <td>{{ order.id }}</td>
-    <td>{{ order.title }}</td>
-    <td>{{ order.status }}</td>
+    <td class="order-id">{{ order.id }}</td>
+    <td class="order-title">{{ order.title }}</td>
+    <td class="order-status">{{ order.status }}</td>
   </tr>
 </template>
 

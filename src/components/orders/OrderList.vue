@@ -1,15 +1,15 @@
 <template>
   <div>
-    <div className="row">
-      <div className="columns twelve">
+    <div class="row">
+      <div class="columns twelve">
         <router-link to="/new">
-          <button className="button-primary">New</button>
+          <button class="button-primary">New</button>
         </router-link>
         <button v-on:click="onRefresh">Refresh</button>
       </div>
     </div>
-    <div className="row">
-      <div className="columns twelve">
+    <div class="row">
+      <div class="columns twelve">
         <table class="u-full-width" v-if="loaded">
           <thead>
             <tr>
@@ -26,23 +26,15 @@
             />
           </tbody>
         </table>
-        <Loader className="columns twelve" v-if="!loaded" />
+        <Loader class="columns twelve" v-if="!loaded" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { OrderDaos } from "../../dao";
 import OrderRow from "./OrderRow";
 import Loader from "../Loader";
-import axios from "axios";
-
-const axiosInstance = axios.create({
-  baseURL: "https://c098da06.ngrok.io",
-  timeout: 1000
-});
-const orderDao = new OrderDaos.OrderDao(axiosInstance);
 
 export default {
   name: "OrderList",
@@ -63,8 +55,8 @@ export default {
     });
   },
   methods: {
-    fetchOrders: () => {
-      return orderDao.fetchAll();
+    fetchOrders: function() {
+      return this.$ordersDao.fetchAll();
     },
     onRefresh: function() {
       this.loaded = false;

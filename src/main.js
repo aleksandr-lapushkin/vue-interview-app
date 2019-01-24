@@ -3,9 +3,18 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Order from "./components/orders/Order";
+import { OrderDaos } from "./dao";
 import OrderList from "./components/orders/OrderList";
 import App from "./App";
+import axios from "axios";
 
+const axiosInstance = axios.create({
+  baseURL: "https://c098da06.ngrok.io",
+  timeout: 1000
+});
+
+Vue.prototype.$http = axiosInstance;
+Vue.prototype.$ordersDao = new OrderDaos.OrderDao(axiosInstance);
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
